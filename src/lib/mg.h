@@ -411,8 +411,8 @@ static double calcStdev(vector<double> a, int n, double f, double *mean) {
 };
 static double calcEwma(double newValue, double previous, int periods) {
         //  cout << "New Value: " << newValue << "Previou Value: " << previous << " \n";
-        if (previous) {
-                double alpha = 2 / (periods + 1);
+        if (previous > 0) {
+                double alpha = (double)2 / (periods + 1);
                 double newAlpha = alpha * newValue + (1 - alpha) * previous;
                 cout << "New Value:" << newValue << "New Alpha: " << newAlpha << " Period:" << periods << "previous: " << previous << " \n";
                 return newAlpha;
